@@ -26,3 +26,7 @@ dist-ssr
 .env
 .vscode
 scratch
+
+*.db
+*.db-wal
+*.db-shm

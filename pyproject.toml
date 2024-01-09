@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "atomic-fallout-reca-map"
+version = "0.1.0"
+description = ""
+authors = ["Chris Amico <eyeseast@gmail.com>"]
+readme = "README.md"
+packages = [{include = "atomic_fallout_reca_map"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+datasette = "^0.64.6"
+datasette-geojson-map = "^0.4.0"
+geojson-to-sqlite = "^1.1.1"
+datasette-query-files = "^0.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
