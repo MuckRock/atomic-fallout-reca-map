@@ -6,6 +6,7 @@
 
   import Legend from "./Legend.svelte";
   import text from "./text.json";
+  import reca from "./data/reca.json";
 
   const TILE_URL =
     "https://muckrock-tiles.s3.amazonaws.com/planet/20240103.pmtiles";
@@ -57,6 +58,24 @@
     const firstSymbolLayer = map
       .getStyle()
       .layers.find((layer) => layer.type === "symbol");
+
+    map.addSource("reca", { type: "geojson", data: reca });
+
+    map.addLayer(
+      {
+        id: "reca-fill",
+        source: "reca",
+        type: "fill",
+        layout: {},
+        paint: {
+          "fill-color": ["get", "fill"],
+          "fill-opacity": 0.5,
+        },
+      },
+      firstSymbolLayer.id
+    );
+
+    loaded = true;
   }
 </script>
 

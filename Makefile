@@ -14,8 +14,8 @@ areas: $(DB)
 run:
 	poetry run datasette serve . --load-extension spatialite
 
-src/data/reca.geojson:
+src/data/reca.json:
 	poetry run datasette . --get /reca/export.geojson \
 		--load-extension spatialite > $@
 
-export: src/data/reca.geojson
+export: src/data/reca.json
