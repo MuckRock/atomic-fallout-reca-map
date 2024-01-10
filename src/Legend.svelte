@@ -32,7 +32,7 @@
     background-color: white;
     border-radius: 5px;
     margin: 2em;
-    max-width: 200px;
+    max-width: 250px;
     padding: 1em;
     pointer-events: all;
     position: relative;

@@ -1,9 +1,9 @@
 {
   "headline": "Fallout from America’s nuclear testing program",
-  "source": "https://www.justice.gov/civil/common/reca",
+  "source": "<a href=\"https://www.justice.gov/civil/common/reca\">US Dept of Justice</a> and ",
   "legend": {
-    "title": "",
-    "description": "",
+    "title": "Areas covered by RECA",
+    "description": "Click an item in the legend to highlight areas compensated under the Radiation Exposure Compensation Act and a proposed expansion.",
     "items": [
       {
         "color": "#E8B500",

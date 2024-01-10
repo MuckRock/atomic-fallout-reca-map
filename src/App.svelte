@@ -113,12 +113,17 @@
           <span>Show all</span>
         </label>
       </li>
-      {#each text.legend.items as { color, label, value }}
+      {#each text.legend.items as { color, label, value, description }}
         <li class:selected={visible.toString() === value.toString()}>
           <label>
             <input type="radio" {value} bind:group={visible} />
-            <div class="box" style:background-color={color}></div>
-            <span>{label}</span>
+            <div>
+              <h3>
+                <div class="box" style:background-color={color}></div>
+                {label}
+              </h3>
+              <p>{description}</p>
+            </div>
           </label>
         </li>
       {/each}
@@ -187,10 +192,25 @@
   :global(.legend) ol li .box {
     display: inline-block;
     height: 1.25em;
-    width: 2ch;
+    width: 1.25em;
+    vertical-align: text-bottom;
   }
 
   :global(.legend.dark) .box {
     border: 0.5px solid white;
+  }
+
+  :global(.legend) h3 {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  :global(.legend) li p {
+    display: none;
+    margin-top: 0;
+  }
+
+  :global(.legend) li.selected p {
+    display: block;
   }
 </style>
