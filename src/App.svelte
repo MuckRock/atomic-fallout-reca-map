@@ -20,6 +20,8 @@
   let visible = "all";
   let loaded = false;
 
+  $: filter(map, visible, loaded);
+
   onMount(() => {
     map = new maplibregl.Map({
       container,
@@ -76,6 +78,16 @@
     );
 
     loaded = true;
+  }
+
+  function filter(map, visible, loaded) {
+    if (!map || !loaded) return;
+
+    // setting "all" clears filters
+    const expression =
+      visible === "all" ? null : ["==", ["get", "layer"], visible];
+
+    map.setFilter("reca-fill", expression);
   }
 </script>
 
