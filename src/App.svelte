@@ -93,6 +93,9 @@
 
 <header>
   <h1>{text.headline}</h1>
+  <div class="source">
+    <p>{@html text.source}</p>
+  </div>
 </header>
 
 <div bind:this={container} class="container">
@@ -139,7 +142,9 @@
 
   header {
     background-color: black;
+    display: flex;
     flex: none;
+    justify-content: space-between;
     padding: 0.5em 1em;
     z-index: 10;
   }
@@ -148,6 +153,16 @@
     color: white;
     font-size: 1.5em;
     margin: 0;
+  }
+
+  header p {
+    color: white;
+    margin: 0;
+  }
+
+  header :global(a) {
+    color: white;
+    text-decoration: underline;
   }
 
   .container {
