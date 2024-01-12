@@ -77,15 +77,18 @@
       firstSymbolLayer.id
     );
 
-    map.addLayer({
-      id: "reca-lines",
-      source: "reca",
-      type: "line",
-      paint: {
-        "line-color": ["get", "fill"],
-        "line-opacity": 0.75,
+    map.addLayer(
+      {
+        id: "reca-lines",
+        source: "reca",
+        type: "line",
+        paint: {
+          "line-color": ["get", "fill"],
+          "line-opacity": 0.75,
+        },
       },
-    });
+      firstSymbolLayer.id
+    );
 
     loaded = true;
   }
