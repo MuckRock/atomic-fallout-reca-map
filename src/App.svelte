@@ -17,7 +17,7 @@
 
   let container;
   let map;
-  let visible = "all";
+  let visible = "uranium";
   let loaded = false;
 
   $: filter(map, visible, loaded);
@@ -77,6 +77,16 @@
       firstSymbolLayer.id
     );
 
+    map.addLayer({
+      id: "reca-lines",
+      source: "reca",
+      type: "line",
+      paint: {
+        "line-color": ["get", "fill"],
+        "line-opacity": 0.75,
+      },
+    });
+
     loaded = true;
   }
 
@@ -110,14 +120,8 @@
     </p>
 
     <ol>
-      <li class:selected={visible === "all"}>
-        <label>
-          <input type="radio" value="all" bind:group={visible} />
-          <span>Show all</span>
-        </label>
-      </li>
       {#each text.legend.items as { color, label, value, description }}
-        <li class:selected={visible.toString() === value.toString()}>
+        <li class:selected={visible === value}>
           <label>
             <input type="radio" {value} bind:group={visible} />
             <div>
