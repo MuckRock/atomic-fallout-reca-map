@@ -132,7 +132,6 @@
                 <div class="box" style:background-color={color}></div>
                 {label}
               </h3>
-              <p>{description}</p>
             </div>
           </label>
         </li>
