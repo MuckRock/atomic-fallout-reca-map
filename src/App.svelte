@@ -107,7 +107,7 @@
 <header>
   <h1>{text.headline}</h1>
   <div class="source">
-    <p>{@html text.source}</p>
+    <p>Sources: {@html text.source}</p>
   </div>
 </header>
 
@@ -123,7 +123,7 @@
     </p>
 
     <ol>
-      {#each text.legend.items as { color, label, value, description }}
+      {#each text.legend.items as { color, label, value }}
         <li class:selected={visible === value}>
           <label>
             <input type="radio" {value} bind:group={visible} />
@@ -224,14 +224,5 @@
   :global(.legend) h3 {
     display: inline-block;
     margin-top: 0;
-  }
-
-  :global(.legend) li p {
-    display: none;
-    margin-top: 0;
-  }
-
-  :global(.legend) li.selected p {
-    display: block;
   }
 </style>

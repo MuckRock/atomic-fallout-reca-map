@@ -8,20 +8,17 @@
       {
         "color": "#E8B500",
         "label": "Uranium Worker States",
-        "value": "uranium",
-        "description": "RECA covers certain uranium industry employment in the states of Colorado, New Mexico, Arizona, Wyoming, South Dakota, Washington, Utah, Idaho, North Dakota, Oregon, and Texas."
+        "value": "uranium"
       },
       {
         "color": "#E76D02",
         "label": "Downwinder Areas",
-        "value": "downwind",
-        "description": "RECA covers physical presence in certain counties located downwind from the Nevada Test Site in the states of Utah, Nevada, and Arizona."
+        "value": "downwind"
       },
       {
         "color": "#2674BA",
         "label": "Proposed RECA expansion areas",
-        "value": "expansion",
-        "description": "The failed amendment would have expanded RECA to the geographic downwinder eligibility to include then-residents of Idaho, Colorado, Montana, New Mexico and Guam."
+        "value": "expansion"
       }
     ]
   }
