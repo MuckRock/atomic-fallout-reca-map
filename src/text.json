@@ -1,6 +1,6 @@
 {
   "headline": "Fallout from America’s nuclear testing program",
-  "source": "<a href=\"https://www.justice.gov/civil/common/reca\">US Dept of Justice</a> and <a href=\"https://sourcenm.com/wp-content/uploads/2023/07/RECA-AMENDMENT-NDAA.pdf\">Source New Mexico</a>",
+  "source": U.S. Department of Justice,
   "legend": {
     "title": "America’s radiation fallout areas, at a glance",
     "description": "Click an item in the legend to highlight areas either currently eligible for compensation under the federal Radiation Exposure Compensation Act or an area that is being considered for possible expansion.",
@@ -12,7 +12,7 @@
       },
       {
         "color": "#E76D02",
-        "label": "Downwinder Areas",
+        "label": "Eligible Downwinder Areas",
         "value": "downwind"
       },
       {
