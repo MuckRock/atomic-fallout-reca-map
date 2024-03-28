@@ -4,7 +4,6 @@
   import * as pmtiles from "pmtiles";
   import layers from "protomaps-themes-base";
 
-  import Legend from "./Legend.svelte";
   import text from "./text.json";
   import reca from "./data/reca.json";
 
@@ -36,11 +35,16 @@
             attribution:
               '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>',
           },
+
+          reca: {
+            type: "geojson",
+            data: reca,
+          },
         },
         layers: layers("protomaps", "light"),
       },
-      center: [-101.56660156843634, 39.27531259430637],
-      zoom: 4,
+      center: [-110.79, 41.17],
+      zoom: 3.25,
       hash: true,
     });
 
@@ -60,8 +64,6 @@
     const firstSymbolLayer = map
       .getStyle()
       .layers.find((layer) => layer.type === "symbol");
-
-    map.addSource("reca", { type: "geojson", data: reca });
 
     map.addLayer(
       {
@@ -105,45 +107,49 @@
 </script>
 
 <header>
-  <h1>{text.headline}</h1>
-  <div class="source">
-    <p>Sources: {@html text.source}</p>
-  </div>
+  <h1>{@html text.headline}</h1>
 </header>
 
 <div bind:this={container} class="container">
   <noscript> This experience requires JavaScript to function. </noscript>
 </div>
 
-{#if map}
-  <Legend {map}>
-    <h2>{text.legend.title}</h2>
-    <p>
-      {text.legend.description}
-    </p>
-
-    <ol>
-      {#each text.legend.items as { color, label, value }}
-        <li class:selected={visible === value}>
-          <label>
-            <input type="radio" {value} bind:group={visible} />
-            <div>
-              <h3>
-                <div class="box" style:background-color={color}></div>
-                {label}
-              </h3>
-            </div>
-          </label>
-        </li>
+<footer>
+  <label>
+    Highlight
+    <select bind:value={visible}>
+      {#each text.legend.items as { color, value, label }}
+        <option {value} style:color>
+          {label}
+        </option>
       {/each}
-    </ol>
-  </Legend>
-{/if}
+    </select>
+  </label>
+  <p>
+    {text.legend.description}
+  </p>
+  <div class="source">
+    <p>Source: {text.source}</p>
+  </div>
+</footer>
 
 <style>
   :global(#app) {
     display: flex;
     flex-flow: column nowrap;
+    font-family:
+      "Source Sans Pro",
+      -apple-system,
+      "system-ui",
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      sans-serif;
   }
 
   header {
@@ -151,18 +157,13 @@
     display: flex;
     flex: none;
     justify-content: space-between;
-    padding: 0.5em 1em;
+    padding: 0.5em 1rem;
     z-index: 10;
   }
 
   header h1 {
     color: white;
-    font-size: 1.5em;
-    margin: 0;
-  }
-
-  header p {
-    color: white;
+    font-size: 1.5rem;
     margin: 0;
   }
 
@@ -172,57 +173,25 @@
   }
 
   .container {
-    flex: 1 1 10em;
+    flex: 1 1 10rem;
   }
 
-  :global(.legend) p,
-  :global(.legend) li {
-    font-size: 14px;
+  footer {
+    font-size: 1rem;
+    padding: 1rem;
+    max-width: 100ch;
+    margin: 0 auto;
   }
 
-  :global(.legend) ol {
-    padding: 0;
-  }
-
-  :global(.legend) ol li {
-    list-style: none;
-    margin-bottom: 0.25em;
-  }
-
-  :global(.legend) ol li label {
-    border: 1px solid transparent;
-    border-radius: 5px;
-    cursor: pointer;
+  footer label {
+    font-weight: bold;
     display: flex;
-    gap: 0.5em;
-    padding: 0.25em;
+    gap: 1rem;
   }
 
-  :global(.legend) ol li label:hover {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-  }
-
-  :global(.legend) ol li.selected label {
-    border: 1px solid #ddd;
-  }
-
-  :global(.legend) ol li label input {
-    display: none;
-  }
-
-  :global(.legend) ol li .box {
-    display: inline-block;
-    height: 1.25em;
-    width: 1.25em;
-    vertical-align: text-bottom;
-  }
-
-  :global(.legend.dark) .box {
-    border: 0.5px solid white;
-  }
-
-  :global(.legend) h3 {
-    display: inline-block;
-    margin-top: 0;
+  footer label,
+  footer select,
+  footer option {
+    font-size: 1rem;
   }
 </style>

@@ -1,9 +1,9 @@
 {
-  "headline": "Fallout from America’s nuclear testing program",
+  "headline": "Fallout from America’s nuclear testing&nbsp;program",
   "source": "U.S. Department of Justice",
   "legend": {
     "title": "America’s radiation fallout areas, at a glance",
-    "description": "Click an item in the legend to highlight areas either currently eligible for compensation under the federal Radiation Exposure Compensation Act or an area that is being considered for possible expansion.",
+    "description": "Choose a group to highlight areas eligible for compensation under the federal Radiation Exposure Compensation Act or areas under consideration for expansion.",
     "items": [
       {
         "color": "#E8B500",
